@@ -59,10 +59,12 @@ jobs:
      run: docker buildx build -t myapp:latest .
 
 
+
    - name: Docker Scout Scan
      run: |     
        curl -fsSL https://raw.githubusercontent.com/docker/scout/scout-cli/main/install.sh -o install-scout.sh
        sh install-scout.sh
+       echo ${{ secrets.REPO_USER }} | docker login -u ${{ secrets.REPO_USER }} --password-stdin
        docker scout  quickview
        docker scout cves
        
