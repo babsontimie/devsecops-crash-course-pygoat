@@ -40,7 +40,14 @@ jobs:
      uses: docker-practice/actions-setup-docker@v1
      with:
        docker_version: '20.10.7'
-
+       
+   - name: Check if daemon.json exists
+     run: |
+       if [ -f /etc/docker/daemon.json ]; then
+         sudo cat /etc/docker/daemon.json
+       else
+         echo "No daemon.json file found. Skipping."
+       fi
    - name: Build Docker Image
      run: docker build -f Dockerfile -t myapp:latest
 
