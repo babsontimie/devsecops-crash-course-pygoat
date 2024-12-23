@@ -55,7 +55,9 @@ jobs:
        
 
    - name: Build Docker Image
-     run: docker build -f Dockerfile -t myapp:latest
+   #  run: docker build -f Dockerfile -t myapp:latest
+     run: docker buildx build -t myapp:latest .
+
 
    - name: Docker Scout Scan
      run: |     
