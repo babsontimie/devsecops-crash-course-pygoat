@@ -8,7 +8,7 @@ RUN echo "deb http://deb.debian.org/debian buster main" >> /etc/apt/sources.list
     echo "deb http://security.debian.org/debian-security buster/updates main" >> /etc/apt/sources.list
     
 # dependencies for psycopg2
-RUN apt-get update && apt-get install --no-install-recommends -y dnsutils=1:9.11.5.P4+dfsg-5.1+deb10u9 libpq-dev=11.16-0+deb10u1 python3-dev=3.7.3-1 \
+RUN apt-get update && apt-get install --no-install-recommends -y dnsutils libpq-dev=11.16-0+deb10u1 python3-dev=3.7.3-1 \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
